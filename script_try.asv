@@ -23,10 +23,10 @@ T%_pre = readtable(fullfile(indir, infile_pre));
 
 preIDs = T_pre.participant;
 
-sub = unique(T_bed.participant);
+sub = cell2mat(unique(T_pre.participant));
 for s = unique(T_bed.participant)
     disp(s);
-    offer = T_bed.offer(T_bed.participant == s,:);
+    offer = T_pre.offer(T_bed.participant == sub(s),:);
     %disp(offer)
 end
 

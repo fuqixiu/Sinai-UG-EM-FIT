@@ -1,10 +1,11 @@
 % Convert UG2 to a format for EM procedure
 % Created by BRK Shevlin, May 2023
 clear;
-indir = '~example_data';
-infile_bed = 'SOCIAL_matched_hc_bed.csv';
+%indir = '~example_data';
+indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
+infile_bed = 'em_pre_data.csv';
 T_bed = readtable(fullfile(indir, infile_bed));
-infile_bn = 'SOCIAL_matched_hc_bn.csv';
+infile_bn = 'em_post_data.csv';
 T_bn = readtable(fullfile(indir, infile_bn));
 load(fullfile(indir,"beh001.mat"));
 
