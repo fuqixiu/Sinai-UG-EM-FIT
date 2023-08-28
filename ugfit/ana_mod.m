@@ -24,7 +24,7 @@ M.doMC      = 1;                                                                
 M.quickfit  = 0;   % Shawn tells me that quickfit is too liberal to be trusted, but is fine for testing                                                                                                  % whether to lower the convergence criterion for model fitting (makes fitting quicker) (1=quick fit)
 M.omitBMS   = 0;   % omit bayesian model comparison if you don't have SPM instaslled
 M.modid     = { 'ms_UG0_f0f_adaptiveNorm', ...
-     'ms_UG1_etaf_f0f_adaptiveNorm'}; 
+     'ms_UG0_adaptiveNorm','ms_UG0_fixedNorm'}; 
               
                 % list of main models to fit
 
@@ -67,10 +67,7 @@ save('WEIGHTED_FIT_LEAP_Aug28_2023.mat','s')
 %== II) COMPARE MODELS: ================================================================================================
 
 M.modid = {'ms_UG0_f0f_adaptiveNorm', ...
-                 'ms_UG1_etaf_f0f_adaptiveNorm' 
-                 'ms_UG2_etaf_f0f_adaptiveNorm',...
-                 'ms_UG3_etaf_f0f_adaptiveNorm'
-    };
+     'ms_UG0_adaptiveNorm','ms_UG0_fixedNorm'};
 
 for iexp = 1:numel(expids)
    if M.doMC~=1, break; end
@@ -79,10 +76,8 @@ for iexp = 1:numel(expids)
 end
 
 
-
-
 %% Look at params of winning model
-modelID =  'ms_UG2_etaf_f0f_adaptiveNorm';
+modelID =  'ms_UG0_f0f_adaptiveNorm';
 winning_model = s.(cur_exp).em.(modelID);
 
 params = winning_model.q;
@@ -93,7 +88,7 @@ for i = 1:size(params,1)
     est_params(i,1) = norm2alpha(params(i,1));
     est_params(i,2) = norm2beta(params(i,2));
     est_params(i,3) = norm2alpha(params(i,3));
-    est_params(i,4) = norm2delta(params(i,4));
+    %est_params(i,4) = norm2delta(params(i,4));
 end
 
 %% ONLY RELEVANT FOR PARAMETER RECOVERY EXERCISES
