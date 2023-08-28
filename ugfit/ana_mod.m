@@ -15,10 +15,9 @@ setFigDefaults;
 % load data:
 %indir = '~example_data';
 indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
-load(fullfile(indir,'DATA_ED_Round1_May23_2023.mat'));
+load(fullfile(indir,'DATA_LEAP_Aug28_2023.mat'));
 % define data set(s) of interest:
-expids = {'BN_IC','BN_NC','BED_IC','BED_NC', ...
-            'BNHC_IC','BNHC_NC','BEDHC_IC','BEDHC_NC'};
+expids = {'pre','post'};
 % how to fit RL:
 M.dofit     = 1;                                                                                                     % whether to fit or not                                                           
 M.doMC      = 1;                                                                                                     % whether to do model comparison or not  
@@ -62,7 +61,7 @@ for iexp = 1:numel(expids)
 end
 
 
-save('WEIGHTED_FIT_ED_t30_Aug21_2023.mat','s')
+save('WEIGHTED_FIT_LEAP_Aug28_2023.mat','s')
 
 %%
 %== II) COMPARE MODELS: ================================================================================================

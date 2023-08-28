@@ -8,29 +8,35 @@ ID = ID(1:5,:);
 
 %% data reformat 
 clear
-%indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
+indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
+infile_pre = 'em_pre_data.csv';
+T_pre = readtable(fullfile(indir, infile_pre));
+infile_post = 'em_post_data.csv';
+T_post = readtable(fullfile(indir, infile_post));
 
-indir = 'C:\Users\fuq01\Documents\Scripts\leap_ddm\Data\';
-infile_all = 'ddm_or_data.csv';
-T_bed = readtable(fullfile(indir, infile_all));
-
-%possIDs_hc_bed = cell2mat(T_bed.participant(T_bed.stim == "pre",:));
-
-%infile_pre = 'em_pre_data.csv';
-T%_pre = readtable(fullfile(indir, infile_pre));
-%infile_post = 'em_post_data.csv';
-%T_post = readtable(fullfile(indir, infile_post));
-
-preIDs = T_pre.participant;
-
-sub = cell2mat(unique(T_pre.participant));
-for s = unique(T_bed.participant)
-    disp(s);
-    offer = T_pre.offer(T_bed.participant == sub(s),:);
-    %disp(offer)
+sub = unique(T_pre.participant);
+for i = 1:length(sub)
+    keepStruct_pre = struct();
+    keepStruct_pre.offer = T_pre.offer(T_pre.participant == sub(i),:);
+    keepStruct.choice = T_pre.choice_b(T_pre.participant == sub(i), :);
+    pre_beh(:,i) = {keepStruct};
 end
 
-T_pre.offer(T_pre.participant == 701,:)
+for i = 1:length(sub)
+    keepStruct_post = struct();
+    keepStruct_post.offer = T_post.offer(T_post.participant == sub(i),:);
+    keepStruct_post.choice = T_post.choice_b(T_post.participant == sub(i), :);
+    post_beh(:,i) = {keepkeepStruct_postStruct};
+end
+
+% post_stim session 
+pre_struct = struct();
+pre_struct.beh = pre_beh;
+pre_struct.expname = 'pre_stim';
+pre_struct.ID = num2str(sub);
+pre_struct.em = {};
+
+
 
 
 % NC condition
