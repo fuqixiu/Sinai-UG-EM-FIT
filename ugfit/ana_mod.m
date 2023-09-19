@@ -77,7 +77,7 @@ end
 
 
 %% Look at params of winning model
-modelID =  'ms_UG0_f0f_adaptiveNorm';
+modelID =  'ms_UG0_fixedNorm';
 winning_model = s.(cur_exp).em.(modelID);
 
 params = winning_model.q;
