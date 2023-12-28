@@ -15,9 +15,9 @@ setFigDefaults;
 % load data:
 %indir = '~example_data';
 indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
-load(fullfile(indir,'DATA_LEAP_Aug28_2023.mat'));
+load(fullfile(indir,'DATA_LEAP_online_Dec_2023.mat'));
 % define data set(s) of interest:
-expids = {'pre','post'};
+expids = {'hc','dep', 'anh', 'both'};
 % how to fit RL:
 M.dofit     = 1;                                                                                                     % whether to fit or not                                                           
 M.doMC      = 1;                                                                                                     % whether to do model comparison or not  
@@ -30,7 +30,7 @@ M.modid     = { 'ms_UG0_f0f_adaptiveNorm', ...
 
 %%
 %== I) RUN MODELS: ======================================================================================================
-trials = (1:30);
+trials = (1:60); %online 2 blocks, 60 trials
 for iexp = 1:numel(expids)
    if M.dofit == 0,  break; end
    cur_exp = expids{iexp};                                                   
@@ -61,8 +61,9 @@ for iexp = 1:numel(expids)
 end
 
 
-save('WEIGHTED_FIT_LEAP_Aug28_2023.mat','s')
+save('WEIGHTED_FIT_LEAP_online_Dec_2023.mat','s')
 
+cur_exp = 'both';
 %%
 %== II) COMPARE MODELS: ================================================================================================
 
@@ -104,14 +105,4 @@ corrplot([est_params(:,1) param_tru(:,2)    ])
 corrplot([est_params(:,3) param_tru(:,4)    ])
 % Delta
 corrplot([est_params(:,4) param_tru(:,5)    ])
-
-
-
-
-
-
-
-
-
-
 
