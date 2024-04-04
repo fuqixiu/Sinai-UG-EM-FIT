@@ -64,7 +64,7 @@ end
 
 save('WEIGHTED_FIT_LEAP_online_April_2024.mat','s')
 
-cur_exp = 'all';
+cur_exp = 'both';
 %%
 %== II) COMPARE MODELS: ================================================================================================
 

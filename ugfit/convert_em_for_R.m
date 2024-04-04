@@ -1,6 +1,6 @@
 % Convert to format that is more R-friendly
 
-load("example_fits\WEIGHTED_FIT_LEAP_online_Dec_2023.mat")
+load("example_fits\WEIGHTED_FIT_LEAP_online_April_2024.mat")
 
 M.modid     = { 'ms_UG0_f0f_adaptiveNorm', ...
                 'ms_UG0_adaptiveNorm','ms_UG0_fixedNorm'}; 
@@ -21,7 +21,7 @@ for xp = 1:size(fieldnames(s))
             params(i,:) = norm2par(M.modid{im},qi);
        end
     
-       model_name_save = ['WEIGHTED_FIT_LEAP_online_' cur_exp '_t60_noFlat_' M.modid{im} '_Dec23.csv'];
+       model_name_save = ['WEIGHTED_FIT_LEAP_online_' cur_exp '_t60_noFlat_' M.modid{im} '_Apr24.csv'];
    
        T= table(IDs,BIC,params);
     
