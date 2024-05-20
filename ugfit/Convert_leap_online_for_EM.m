@@ -6,24 +6,24 @@ T = readtable(fullfile(indir, infile));
 
 %% All group combines
 %T_all = T(strcmp(T.group, 'Healthy'), :);
-sub = unique(T.participant);
+%sub = unique(T.participant);
 % Preallocate All_beh as a cell array
-beh = cell(1, length(sub));
-for i = 1:length(sub)
-    keepStruct = struct();
+%beh = cell(1, length(sub));
+%for i = 1:length(sub)
+    %keepStruct = struct();
     
     % Use strcmp for cell array comparison
-    keepStruct.offer = T.offer(strcmp(T.participant, sub{i}), :);
-    keepStruct.choice = T.choice_acc(strcmp(T.participant, sub{i}), :);
+    %keepStruct.offer = T.offer(strcmp(T.participant, sub{i}), :);
+    %keepStruct.choice = T.choice_acc(strcmp(T.participant, sub{i}), :);
     
     % Assign keepStruct to the cell array
-    beh{i} = keepStruct;
-end
-All = struct();
-All.beh = beh;
-All.expname = 'all';
-All.ID = sub;
-All.em = {};
+    %beh{i} = keepStruct;
+%end
+%All = struct();
+%All.beh = beh;
+%All.expname = 'all';
+%All.ID = sub;
+%All.em = {};
 
 
 %% Healthy group
@@ -125,9 +125,9 @@ s.both = BOTH;
 
 %% Final structure for all groups together
 % Put into into the s structure
-s = struct();
-s.all = All;
+%s = struct();
+%s.all = All;
 %%
-save(fullfile(indir, 'DATA_LEAP_online_baseline_2024.mat'),'s');
+save(fullfile(indir, 'DATA_LEAP_online_baseline_2024_4G.mat'),'s');
 clear
-load("example_data\DATA_LEAP_online_baseline_2024.mat")
+load("example_data\DATA_LEAP_online_baseline_2024_4G.mat")
