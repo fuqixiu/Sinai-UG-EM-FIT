@@ -4,7 +4,6 @@
 %
 %%
 %== -I) Prepare workspace: ============================================================================================
-
 clearvars
 addpath('models'); 
 addpath('tools');
@@ -15,10 +14,10 @@ setFigDefaults;
 % load data:
 %indir = '~example_data';
 indir = 'C:\Users\fuq01\Documents\GitHub\Sinai-UG-EM-FIT\example_data';
-load(fullfile(indir,'DATA_LEAP_online_baseline_2024_4G.mat'));
+load(fullfile(indir,'DATA_LEAP_online_baseline_2024.mat'));
 % define data set(s) of interest:
-expids = {'hc','dep', 'anh', 'both'}; % fit by groups version
-%expids = {'all'}; % fit by all version
+%expids = {'hc','dep', 'anh', 'both'}; % fit by groups version
+expids = {'all'}; % fit by all version
 % how to fit RL:
 M.dofit     = 1;                                                                                                     % whether to fit or not                                                           
 M.doMC      = 1;                                                                                                     % whether to do model comparison or not  
@@ -62,7 +61,7 @@ for iexp = 1:numel(expids)
 end
 
 
-save('WEIGHTED_FIT_LEAP_online_May_2024_4G.mat','s')
+save('WEIGHTED_FIT_LEAP_online_May_2024.mat','s')
 
 cur_exp = 'all';
 %%
