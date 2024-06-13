@@ -88,7 +88,7 @@ BOTH.expname = 'both';
 BOTH.ID = sub;
 BOTH.em = {};
 
-%% Final structure for 4 groups
+%% Final structure for 4 groups seperatly 
 % Put into into the s structure
 s = struct();
 s.hc = HC;
@@ -121,7 +121,9 @@ All.em = {};
 % Put into into the s structure
 s = struct();
 s.all = All;
-%%
+
+
+%% Save structure
 save(fullfile(indir, 'DATA_LEAP_online_baseline_2024_4G.mat'),'s');
 clear
 load("example_data\DATA_LEAP_online_baseline_2024_4G.mat")
