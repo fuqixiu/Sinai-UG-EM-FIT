@@ -6,12 +6,12 @@ function [ npar ] = get_npar( modelID)
 
 %%%%% main models
 if       strcmp(modelID,'ms_UG0_adaptiveNorm'),            npar = 4;
-elseif       strcmp(modelID,'ms_UG0_adaptiveNorm_fixedalpha'),   npar = 3;
 elseif       strcmp(modelID,'ms_UG1_etaf_adaptiveNorm'),   npar = 5;
 elseif       strcmp(modelID,'ms_UG2_etaf_adaptiveNorm'),   npar = 5;
 elseif       strcmp(modelID,'ms_UG3_etaf_adaptiveNorm'),   npar = 5;
 elseif       strcmp(modelID,'ms_UG0_f0f_adaptiveNorm'),   npar = 3;
 elseif       strcmp(modelID,'ms_UG0_f0f_adaptiveNorm_v2'),   npar = 3;
+elseif       strcmp(modelID,'ms_UG0_adaptiveNorm_fo'),   npar = 3;
 elseif       strcmp(modelID,'ms_UG1_etaf_f0f_adaptiveNorm'),   npar = 4;
 elseif       strcmp(modelID,'ms_UG2_etaf_f0f_adaptiveNorm'),   npar = 4;
 elseif       strcmp(modelID,'ms_UG0_f0f_adaptiveNorm_blocked'),   npar = 4;
@@ -24,9 +24,6 @@ elseif       strcmp(modelID,'ms_UG0_FS_10'),           npar = 2;
 elseif       strcmp(modelID,'ms_UG1_etaf_fixedNorm'),      npar = 4;
 elseif       strcmp(modelID,'ms_UG2_etaf_fixedNorm'),      npar = 4;
 elseif       strcmp(modelID,'ms_UG3_etaf_fixedNorm'),      npar = 4;
-elseif       strcmp(modelID,'ms_UG0_Bayes_5'),      npar = 2;
-elseif       strcmp(modelID,'ms_UG0_Bayes_10'),      npar = 2;
-elseif       strcmp(modelID,'ms_UG0_Bayes_variable'),      npar = 3;
 
 end
 

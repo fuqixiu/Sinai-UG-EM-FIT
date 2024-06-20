@@ -23,7 +23,15 @@ if strcmp(modelID, 'ms_UG0_adaptiveNorm')
     if size(qin,2)~=4, disp('ERROR'); keyboard; end
     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2f0(qin(:,3)) norm2alpha(qin(:,4))];
     qbounds = [0 1; 0 15; 0 20; 0 1]';
+elseif strcmp(modelID, 'ms_UG0_adaptiveNorm_fixedalpha')
+    if size(qin,2)~=3, disp('ERROR'); keyboard; end
+    qout = [norm2alpha(qin(:,1)) norm2f0(qin(:,2)) norm2alpha(qin(:,3))];
+    qbounds = [0 1; 0 20; 0 1]';
 elseif strcmp(modelID, 'ms_UG0_f0f_adaptiveNorm')
+    if size(qin,2)~=3, disp('ERROR'); keyboard; end
+    qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2alpha(qin(:,3))];
+    qbounds = [0 1; 0 15; 0 1]';
+elseif strcmp(modelID, 'ms_UG0_f0f_adaptiveNorm_v2')
     if size(qin,2)~=3, disp('ERROR'); keyboard; end
     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2alpha(qin(:,3))];
     qbounds = [0 1; 0 15; 0 1]';
@@ -55,6 +63,12 @@ elseif strcmp(modelID, 'ms_UG0_fixedNorm')
     if size(qin,2)~=3, disp('ERROR'); keyboard; end
     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2f0(qin(:,3))];
     qbounds = [0 1; 0 15; 0 20]';
+elseif strcmp(modelID, 'ms_UG0_FS_10')
+    if size(qin,2)~=2, disp('ERROR'); keyboard; end
+     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) ];
+     qbounds = [0 1; 0 15]';
+      %qout = [norm2alpha(qin(:,1)) norm2alpha(qin(:,2)) ];
+      %qbounds = [0 1; 0 1]';
 elseif strcmp(modelID, 'ms_UG1_etaf_fixedNorm')
     if size(qin,2)~=4, disp('ERROR'); keyboard; end
     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2f0(qin(:,3)) norm2delta(qin(:,4))];
@@ -67,7 +81,18 @@ elseif strcmp(modelID, 'ms_UG3_etaf_fixedNorm')
     if size(qin,2)~=4, disp('ERROR'); keyboard; end
     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2f0(qin(:,3)) norm2delta(qin(:,4))];
     qbounds = [0 1; 0 15; 0 20; -2 2]';
-
+elseif strcmp(modelID, 'ms_UG0_Bayes_5')
+    if size(qin,2)~=2, disp('ERROR'); keyboard; end
+     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) ];
+     qbounds = [0 1; 0 15]';
+elseif strcmp(modelID, 'ms_UG0_Bayes_10')
+    if size(qin,2)~=2, disp('ERROR'); keyboard; end
+     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) ];
+     qbounds = [0 1; 0 15]';
+elseif strcmp(modelID, 'ms_UG0_Bayes_variable')
+    if size(qin,2)~=3, disp('ERROR'); keyboard; end
+     qout = [norm2alpha(qin(:,1)) norm2beta(qin(:,2)) norm2f0(qin(:,3))];
+     qbounds = [0 1; 0 15; 0 20]';
    
 end
 
