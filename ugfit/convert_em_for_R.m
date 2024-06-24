@@ -1,9 +1,10 @@
 % Convert to format that is more R-friendly
 
-load("example_fits\WEIGHTED_FIT_LEAP_online_June_2024_4G.mat")
+load("example_fits\WEIGHTED_FIT_LEAP_online_June_2024_4G_9M.mat")
 
-M.modid     = { 'ms_UG0_f0f_adaptiveNorm', ...
-                'ms_UG0_adaptiveNorm','ms_UG0_fixedNorm'}; 
+M.modid     = { 'ms_UG0_f0f_adaptiveNorm', 'ms_UG0_f0f_adaptiveNorm_v2', 'ms_UG0_adaptiveNorm', ...
+                'ms_UG0_FS_10','ms_UG0_fixedNorm', 'ms_UG0_adaptiveNorm_fixedalpha', ...
+                'ms_UG0_Bayes_5', 'ms_UG0_Bayes_10', 'ms_UG0_Bayes_variable'}; 
 
 expList = fieldnames(s);
 for xp = 1:size(fieldnames(s))                
